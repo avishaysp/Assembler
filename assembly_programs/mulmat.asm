@@ -8,5 +8,16 @@ main:
     la $a0, matA
     la $a1, matB
     la $a2, matResult
-    
-    li $s0, 0  # Row index i for matrixA
+    li $s0, 0  # Row index i for mat A
+
+matA_row_loop:
+    bge $s0, 4, complete
+    li $s1, 0
+
+next_row:
+    addi $s0, $s0, 1 
+    j matA_row_loop
+
+matB_col_loop: 
+    bge $s1, 4, next_row
+     
